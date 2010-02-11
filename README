@@ -1,0 +1,30 @@
+helloTipiBackup / http://www.monkeyz.eu
+By Patrick MARIE <mycroft@monkeyz.eu>
+License: Beer-Ware
+
+Coded on Fedora Linux 32bits with Qt 4.5.3. Should compile with Qt > 4.0
+Tested on Windows 7 64 bits, Windows XP 32 bits, Fedora Linux 64 & 32 bits, Mac OS 10.6
+
+--
+
+COMPILATION:
+
+Please retrieve system dependant SDK on http://qt.nokia.com/
+
+$ qmake
+
+# If you need to run linguist:
+$ lupdate *.pro
+$ lrelease *.ts
+
+# Compilation:
+$ make
+
+--
+Under Windows:
+
+cd c:\dev\helloTipiBackup
+set PATH=%PATH%;c:\MinGW\bin;c:\Qt\2009.04\qt\bin
+qmake
+mingw32-make release
+
