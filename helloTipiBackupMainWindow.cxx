@@ -22,8 +22,11 @@ helloTipiBackupMainWindow::helloTipiBackupMainWindow(QMainWindow *parent)
 {
     setupUi(this);
 
+#ifdef _USE_SSL
+    currentQuery = new QHttp(QString(API_HOST), QHttp::ConnectionModeHttps, API_PORT);
+#else
     currentQuery = new QHttp(QString(API_HOST), QHttp::ConnectionModeHttp, API_PORT);
-
+#endif
     connect(loginButton, SIGNAL(clicked(void)), this, SLOT(loginButtonPushed(void)));
     connect(siteChooserButton, SIGNAL(clicked(void)), this, SLOT(siteChooserButtonPushed(void)));
     connect(backupButton, SIGNAL(clicked(void)), this, SLOT(backupButtonPushed(void)));

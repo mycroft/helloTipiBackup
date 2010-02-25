@@ -12,8 +12,19 @@
 
 #define DEFAULT_STATUSBAR_TIME  60 * 1000
 
+#ifndef QT_NO_OPENSSL
+ #define _USE_SSL
+#else
+ #error "You should recompile Qt in order to support OpenSSL."
+#endif
+
 #define API_HOST    "apitxt.hellotipi.com"
+#ifdef _USE_SSL
+#define API_PORT    443
+#else
 #define API_PORT    80
+#endif
+
 #define URL_SITES   "/account/my_sites.xml"
 #define URL_ALBUMS  "/photo/site_albums.xml"
 #define URL_PICTURES "/photo/album_photos.xml"
